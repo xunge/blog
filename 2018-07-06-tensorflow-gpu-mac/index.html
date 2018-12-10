@@ -1,0 +1,169 @@
+<!DOCTYPE html><html style="display:none"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><script>window.materialVersion="0.1.1",window.oldVersion=["0.1.0"]</script><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="renderer" content="webkit"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>我是如何在黑苹果中编译安装 TensorFlow-GPU 1.8 | XUNGE</title><link rel="icon shortcut" type="image/ico" href="https://img.xungejiang.com/static/images/favicon.png"><link rel="icon" href="https://img.xungejiang.com/static/images/favicon.png"><meta name="format-detection" content="telephone=no"><meta name="description" itemprop="description" content="哈工大 计算机科学博士在读"><meta name="keywords" content="训哥, xunge,mac,tensorflow,gpu"><meta name="theme-color" content="#455A64"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}},lsloader.removeLS=function(e){try{localStorage.removeItem(e)}catch(e){}},lsloader.setLS=function(e,s){try{localStorage.setItem(e,s)}catch(e){}},lsloader.getLS=function(e){var s="";try{s=localStorage.getItem(e)}catch(e){s=""}return s},versionString="/*"+(window.materialVersion||"unknownVersion")+"*/",lsloader.clean=function(){var e,s;try{for(e=[],s=0;s<localStorage.length;s++)e.push(localStorage.key(s));e.forEach(function(e){var t=lsloader.getLS(e);window.oldVersion&&window.oldVersion.reduce(function(e,s){return e||-1!==t.indexOf("/*"+s+"*/")},!1)&&lsloader.removeLS(e)})}catch(e){}},lsloader.clean(),lsloader.load=function(e,s,t,n){var o;if("boolean"==typeof t&&(n=t,t=void 0),n=n||!1,t=t||function(){},(o=this.getLS(e))&&-1===o.indexOf(versionString))return this.removeLS(e),void this.requestResource(e,s,t,n);if(o){if(o.split(versionString)[0]!=s)return console.log("reload:"+s),this.removeLS(e),void this.requestResource(e,s,t,n);o=o.split(versionString)[1],n?(this.jsRunSequence.push({name:e,code:o}),this.runjs(s,e,o)):(document.getElementById(e).appendChild(document.createTextNode(o)),t())}else this.requestResource(e,s,t,n)},lsloader.requestResource=function(s,t,e,n){var o=this;n?this.iojs(t,s,function(e,s,t){o.setLS(s,e+versionString+t),o.runjs(e,s,t)}):this.iocss(t,s,function(e){document.getElementById(s).appendChild(document.createTextNode(e)),o.setLS(s,t+versionString+e)},e)},lsloader.iojs=function(s,t,e){var n,o=this;o.jsRunSequence.push({name:t,code:""});try{(n=new XMLHttpRequest).open("get",s,!0),n.onreadystatechange=function(){if(4==n.readyState){if((200<=n.status&&n.status<300||304==n.status)&&""!=n.response)return void e(s,t,n.response);o.jsfallback(s,t)}},n.send(null)}catch(e){o.jsfallback(s,t)}},lsloader.iocss=function(s,t,e,n){var o,a=this;try{(o=new XMLHttpRequest).open("get",s,!0),o.onreadystatechange=function(){if(4==o.readyState){if((200<=o.status&&o.status<300||304==o.status)&&""!=o.response)return e(o.response),void n();a.cssfallback(s,t,n)}},o.send(null)}catch(e){a.cssfallback(s,t,n)}},lsloader.iofonts=function(s,t,e,n){var o,a=this;try{(o=new XMLHttpRequest).open("get",s,!0),o.onreadystatechange=function(){if(4==o.readyState){if((200<=o.status&&o.status<300||304==o.status)&&""!=o.response)return e(o.response),void n();a.cssfallback(s,t,n)}},o.send(null)}catch(e){a.cssfallback(s,t,n)}},lsloader.runjs=function(e,s,t){var n,o,a;if(s&&t)for(n in this.jsRunSequence)this.jsRunSequence[n].name==s&&(this.jsRunSequence[n].code=t);this.jsRunSequence[0]&&this.jsRunSequence[0].code&&"failed"!=this.jsRunSequence[0].status?((o=document.createElement("script")).appendChild(document.createTextNode(this.jsRunSequence[0].code)),o.type="text/javascript",document.getElementsByTagName("head")[0].appendChild(o),this.jsRunSequence.shift(),0<this.jsRunSequence.length&&this.runjs()):this.jsRunSequence[0]&&"failed"==this.jsRunSequence[0].status&&(a=this,(o=document.createElement("script")).src=this.jsRunSequence[0].path,o.type="text/javascript",this.jsRunSequence[0].status="loading",o.onload=function(){a.jsRunSequence.shift(),0<a.jsRunSequence.length&&a.runjs()},document.body.appendChild(o))},lsloader.tagLoad=function(e,s){this.jsRunSequence.push({name:s,code:"",path:e,status:"failed"}),this.runjs()},lsloader.jsfallback=function(e,s){if(!this.jsnamemap[s]){for(var t in this.jsnamemap[s]=s,this.jsRunSequence)this.jsRunSequence[t].name==s&&(this.jsRunSequence[t].code="",this.jsRunSequence[t].status="failed",this.jsRunSequence[t].path=e);this.runjs()}},lsloader.cssfallback=function(e,s,t){var n,o;this.cssnamemap[s]||(this.cssnamemap[s]=1,(n=document.createElement("link")).type="text/css",n.href=e,n.rel="stylesheet",n.onload=n.onerror=t,(o=document.getElementsByTagName("script")[0]).parentNode.insertBefore(n,o))},lsloader.runInlineScript=function(e,s){var t=document.getElementById(s).innerText;this.jsRunSequence.push({name:e,code:t}),this.runjs()},lsloader.css=function(e,s){void 0===window.lsLoadCSSMaxNums&&(window.lsLoadCSSMaxNums=0),window.lsLoadCSSMaxNums++,lsloader.load(e,s,function(){void 0===window.lsLoadCSSNums&&(window.lsLoadCSSNums=0),window.lsLoadCSSNums++,window.lsLoadCSSNums==window.lsLoadCSSMaxNums&&(document.documentElement.style.display="")},!1)},lsloader.js=function(e,s){lsloader.load(e,s,!0)}</script><script>function Queue(){this.dataStore=[],this.offer=function(e){this.debug&&console.log("Offered a Queued Function.");"function"==typeof e?this.dataStore.push(e):console.log("You must offer a function.")},this.poll=function(){this.debug&&console.log("Polled a Queued Function.");return this.dataStore.shift()},this.execNext=function(){var e=this.poll();void 0!==e&&(this.debug&&console.log("Run a Queued Function."),e())},this.debug=!1,this.startDebug=function(){this.debug=!0}}var queue=new Queue</script><style id="spectre_css"></style><script>lsloader.css("spectre_css","https://img.xungejiang.com/static/styles/spectre/spectre.min.css")</script><style id="spectre_exp_css"></style><script>lsloader.css("spectre_exp_css","https://img.xungejiang.com/static/styles/spectre/spectre-exp.min.css")</script><style id="style_css"></style><script>lsloader.css("spectre_exp_css","https://img.xungejiang.com/static/styles/style.min.css")</script><style id="prism_css"></style><script>lsloader.css("prism_css","https://img.xungejiang.com/static/styles/prism.min.css")</script><link rel="alternate" type="application/rss+xml" href="/rss.xml"><meta property="og:title" content="我是如何在黑苹果中编译安装 TensorFlow-GPU 1.8 | XUNGE"><meta property="og:type" content="blog"><meta property="og:url" content="https://blog.xungejiang.com/2018-07-06-tensorflow-gpu-mac/"><meta property="og:image" content="https://img.xungejiang.com/static/images/favicon.png"><meta property="og:description" content="哈工大 计算机科学博士在读"><meta property="og:article:tag" content="mac"><meta property="og:article:tag" content="tensorflow"><meta property="og:article:tag" content="gpu"><meta property="article:published_time" content="Mon Oct 08 2018 11:32:06 GMT+0800"><meta property="article:modified_time" content="Mon Oct 08 2018 11:32:06 GMT+0800"><meta name="twitter:card" content="summary"><script type="text/javascript">!function(){var e=document.createElement("script");e.src="//tajs.qq.com/stats?sId=11315873";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><link rel="canonical" href="https://blog.xungejiang.com/2018-07-06-tensorflow-gpu-mac/"><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.xungejiang.com"
+    },
+    "headline": "我是如何在黑苹果中编译安装 TensorFlow-GPU 1.8",
+    
+    "datePublished": "2018-10-08T03:32:06.162Z",
+    "dateModified": "2018-10-08T03:32:06.162Z",
+    "author": {
+        "@type": "Person",
+        "name": "训哥",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://img.xungejiang.com/static/images/avatar.jpg"
+        },
+        "description": "一切都是最好的安排"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "XUNGE",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://img.xungejiang.com/static/images/favicon.png"
+        }
+    },
+    "keywords": ",mac,tensorflow,gpu训哥, xunge",
+    "description": "哈工大 计算机科学博士在读"
+}</script><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body><div class="off-canvas off-canvas-sidebar-show"><a class="off-canvas-toggle btn btn-link btn-action" href="#sidebar"><i class="icon material-icons casino-icons">menu</i></a><div id="sidebar" class="off-canvas-sidebar"><div id="sidebar-content"><ul class="nav"><a class="off-canvas-toggle btn btn-link btn-action" href="#close"><i class="icon material-icons casino-icons">arrow_back</i></a><div class="sidebar-top"></div><span class="h4 text-center">XUNGE</span><div class="divider"></div><li class="nav-item"><a href="/"><i class="icon material-icons sidebar-icons">home</i> 主页</a></li><li class="nav-item"><a href="/archives/"><i class="icon material-icons sidebar-icons">inbox</i> 归档</a></li><li class="nav-item"><a href="/tags"><i class="icon material-icons sidebar-icons">bookmark</i> 标签</a></li><li class="nav-item"><a href="/about"><i class="icon material-icons sidebar-icons">person</i> 关于</a></li><li class="nav-item"><a href="/gallery"><i class="icon material-icons sidebar-icons">photo</i> 映像</a></li><li class="nav-item"><a href="/links"><i class="icon material-icons sidebar-icons">people</i> 友链</a></li><div class="divider"></div><li class="nav-item"><a href="/archives/" style="display:flex">文章总数<div style="flex-grow:1;padding-left:1rem!important"></div><span class="sidebar-badge">37</span></a></li></ul></div></div><a class="off-canvas-overlay" href="#close"></a><div class="off-canvas-content"><main><div class="container container-post"><div class="card post-card col-mx-auto"><div class="card-no-image"></div><div class="card-header"><div class="card-header-title"><div class="card-title h4">我是如何在黑苹果中编译安装 TensorFlow-GPU 1.8</div></div><div class="divider"></div><div><ul class="post-categories-list"><li class="post-categories-list-item"><a class="post-categories-list-link" href="/categories/tensorflow/">tensorflow</a></li></ul><ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/gpu/">gpu</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/mac/">mac</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/tensorflow/">tensorflow</a></li></ul></div></div><br><div id="post-content" class="card-body"><ul><li>content<br>{:toc}</li></ul><p>之前一直使用 Ubuntu Linux 系统作为 TensorFlow 机器学习的服务器，但是相对于 macOS 来说，无论是界面美化还是应用覆盖都是远远强于 Ubuntu 的，所以计划安装一个黑苹果作为 TensorFlow 的服务器</p><p>但是因为 TensorFlow 在 1.2 版本后不再支持 macOS 的 GPU 版本，只能通过编译源代码进行安装，过程较为繁杂，所以在此记录</p><p>首先确定 Mac 显卡是 NVIDIA 显卡，且 compute capabilities &gt;= 3.0，<a href="https://developer.nvidia.com/cuda-gpus" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a> 查看你的显卡型号是否支持</p><h2 id="环境概览"><a href="# 环境概览" class="headerlink" title="环境概览"></a>环境概览</h2><table><thead><tr><th>软件</th><th>版本号</th></tr></thead><tbody><tr><td>macOS High Sierra</td><td>10.13.4</td></tr><tr><td>TensorFlow</td><td>1.8</td></tr><tr><td>python</td><td>3.6.4</td></tr><tr><td>NVIDIA Web-Drivers</td><td>387.10.10.10.30.106</td></tr><tr><td>CUDA-Drivers</td><td>387.178</td></tr><tr><td>CUDA Toolkit</td><td>9.1</td></tr><tr><td>cuDNN</td><td>7.0.5</td></tr><tr><td>bazel</td><td>0.10.0</td></tr><tr><td>Xcode</td><td>8.3.2</td></tr><tr><td>Command Line Tools for Xcode</td><td>8.3.2</td></tr></tbody></table><h2 id="环境搭建"><a href="# 环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装 -Homebrew"><a href="# 安装 -Homebrew" class="headerlink" title="安装 Homebrew"></a> 安装 Homebrew</h3><p>在终端输入下面命令安装 Homebrew</p><pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><h3 id="安装 -coreutils，llvm，OpenMP"><a href="# 安装 -coreutils，llvm，OpenMP" class="headerlink" title="安装 coreutils，llvm，OpenMP"></a>安装 coreutils，llvm，OpenMP</h3><pre><code>brew install coreutils llvm cliutils/apple/libomp
+</code></pre><h3 id="安装 -Python- 依赖"><a href="# 安装 -Python- 依赖" class="headerlink" title="安装 Python 依赖"></a>安装 Python 依赖</h3><p>建议使用 Anaconda 包管理和 Virtualenv 虚拟环境等安装 Python</p><pre><code>pip install six numpy wheel
+</code></pre><h3 id="安装 -bazel"><a href="# 安装 -bazel" class="headerlink" title="安装 bazel"></a>安装 bazel</h3><p>下载 <a href="https://github.com/bazelbuild/bazel/releases" rel="external nofollow noopener noreferrer" target="_blank">0.10.0</a> 版本中的 <code>bazel-0.10.0-installer-darwin-x86_64.sh</code> 文件</p><p>需要注意，这里必须是 0.10.0 版本，新或旧都能导致编译失败</p><p>在下载目录打开终端，输入下面命令进行安装</p><pre><code>chmod +x bazel-0.10.0-installer-darwin-x86_64.sh
+./bazel-0.10.0-installer-darwin-x86_64.sh
+</code></pre><h3 id="降级 -Xcode- 到 -8-3-2"><a href="# 降级 -Xcode- 到 -8-3-2" class="headerlink" title="降级 Xcode 到 8.3.2"></a>降级 Xcode 到 8.3.2</h3><p>下载 <code>Xcode 8.3.2</code> 和 <code>Command Line Tools for Xcode 8.3.2</code>，Xcode 9 需要降级，因为编译 TensorFlow 只能使用 Xcode 8，官网下载需要登录苹果账号，<a href="https://developer.apple.com/download/more/" rel="external nofollow noopener noreferrer" target="_blank">官网下载链接</a>，按名称排列即可快速找到。</p><ul><li><code>Xcode8.3.2.xip</code> (4.49GB) 下载后解压，重命名为 <code>Xcode8.3.2</code> 并复制到 <code>应用程序</code> 即可</li><li><code>CommandLineToolsforXcode8.3.2.dmg</code> (166.1MB) 下载后安装即可</li></ul><p>使用下面的命令在终端激活 Xcode 8.3.2</p><pre><code>sudo xcode-select -s /Applications/Xcode8.3.2.app
+</code></pre><p>换回 Xcode 9 可以用</p><pre><code>$ sudo xcode-select -s /Applications/Xcode.app
+</code></pre><h3 id="NVIDIA"><a href="#NVIDIA" class="headerlink" title="NVIDIA"></a>NVIDIA</h3><h4 id="1- 安装 -NVIDIA-Web-Drivers"><a href="#1- 安装 -NVIDIA-Web-Drivers" class="headerlink" title="(1) 安装 NVIDIA Web-Drivers"></a>(1) 安装 NVIDIA Web-Drivers</h4><p>下载 <code>NVIDIA Web-Drivers</code> 驱动，根据不同的 Mac 系统进行下载，<a href="https://www.tonymacx86.com/nvidia-drivers/" rel="external nofollow noopener noreferrer" target="_blank">点击这里</a> 下载，支持 macOS 10.13.4 的版本为 387.10.10.10.30.106</p><ul><li><code>WebDriver-387.10.10.10.30.106.pkg</code> (63.9MB) 下载后安装即可</li></ul><h4 id="2- 安装 -CUDA-Drivers"><a href="#2- 安装 -CUDA-Drivers" class="headerlink" title="(2) 安装 CUDA-Drivers"></a>(2) 安装 CUDA-Drivers</h4><p>下载 <code>CUDA-Drivers</code> 驱动，支持 CUDA 9.1 的版本号为 387.178，<a href="https://www.nvidia.cn/object/macosx-cuda-387.178-driver-cn.html" rel="external nofollow noopener noreferrer" target="_blank">官网 </a>下载、 <a href="https://pan.baidu.com/s/1GyoCyuh-hhJtEgFC0XS0IQ" rel="external nofollow noopener noreferrer" target="_blank">百度云</a> 下载</p><ul><li><code>cudadriver_387.178_macos.dmg</code> (39.9MB) 下载后安装即可</li></ul><h4 id="3- 安装 -CUDA-Toolkit-9-1"><a href="#3- 安装 -CUDA-Toolkit-9-1" class="headerlink" title="(3) 安装 CUDA Toolkit 9.1"></a>(3) 安装 CUDA Toolkit 9.1</h4><p>下载 <code>CUDA Toolkit 9.1</code>，<a href="https://developer.nvidia.com/cuda-91-download-archive?target_os=MacOSX&amp;target_arch=x86_64&amp;target_version=1013&amp;target_type=dmglocal" rel="external nofollow noopener noreferrer" target="_blank">官网 </a>下载和 <a href="https://pan.baidu.com/s/1zPU_2aC6_uK3P2j7v-RtEw" rel="external nofollow noopener noreferrer" target="_blank">百度云</a> 下载</p><ul><li><code>cuda_9.1.128_mac.dmg</code> (1.53GB) 下载后安装即可</li></ul><p>配置 CUDA 环境，编辑 <code>~/.bash_profile</code> 文件，如果安装了 zsh 则编辑 <code>~/.zshrc</code> 文件，打开终端：</p><pre><code>open -e .bash_profile
+</code></pre><p>然后在弹出的文件中添加：</p><pre><code>export CUDA_HOME=/usr/local/cuda
+export DYLD_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib
+export LD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
+export PATH=$PATH:$DYLD_LIBRARY_PATH
+</code></pre><p>执行命令重启 bash_profile</p><pre><code>. ~/.bash_profile
+</code></pre><p>检测 CUDA 能否正常运行：</p><pre><code>cd /usr/local/cuda/samples
+sudo make -C 1_Utilities/deviceQuery
+./bin/x86_64/darwin/release/deviceQuery
+</code></pre><p>第一次编译时可能需要同意苹果协议，按照要求填 <code>agree</code> 即可</p><p>最终结果为 <code>Result = PASS</code> 则安装正确。</p><h4 id="4- 安装 -cuDNN-7-0-5"><a href="#4- 安装 -cuDNN-7-0-5" class="headerlink" title="(4) 安装 cuDNN 7.0.5"></a>(4) 安装 cuDNN 7.0.5</h4><p>下载 <code>cuDNN 7.0.5</code>，该版本支持 CUDA 9.1 ，官网下载时需要登录 NVIDIA 账号，<a href="https://developer.nvidia.com/rdp/cudnn-archive" rel="external nofollow noopener noreferrer" target="_blank">官网 </a>下载、 <a href="https://pan.baidu.com/s/1wY5A75FzXbNVmf0ZAIwvkg" rel="external nofollow noopener noreferrer" target="_blank">百度云</a> 下载</p><ul><li><code>cudnn-9.1-osx-x64-v7-ga.tgz</code> (340.3MB) 下载后解压，切换到解压缩的 <code>cuda</code> 目录，输入以下命令</li></ul><pre><code>sudo cp cuda/include/cudnn.h /usr/local/cuda/include
+sudo cp cuda/lib/libcudnn_static.a /usr/local/cuda/lib
+sudo cp cuda/lib/libcudnn.7.dylib /usr/local/cuda/lib
+sudo ln -s /usr/local/cuda/lib/libcudnn.7.dylib /usr/local/cuda/lib/libcudnn.dylib
+sudo chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib/libcudnn*
+</code></pre><h2 id="编译准备"><a href="# 编译准备" class="headerlink" title="编译准备"></a>编译准备</h2><h3 id="拉取 -TensorFlow- 源码 -release-1-8- 分支"><a href="# 拉取 -TensorFlow- 源码 -release-1-8- 分支" class="headerlink" title="拉取 TensorFlow 源码 release 1.8 分支"></a> 拉取 TensorFlow 源码 release 1.8 分支</h3><pre><code>git clone https://github.com/tensorflow/tensorflow -b r1.8
+cd tensorflow
+</code></pre><h3 id="修改代码，使其与 -macOS- 兼容"><a href="# 修改代码，使其与 -macOS- 兼容" class="headerlink" title="修改代码，使其与 macOS 兼容"></a>修改代码，使其与 macOS 兼容</h3><h4 id="替换掉以下三个文件的 -align-sizeof-T"><a href="# 替换掉以下三个文件的 -align-sizeof-T" class="headerlink" title="替换掉以下三个文件的 align(sizeof(T))"></a> 替换掉以下三个文件的 align(sizeof(T))</h4><pre><code>cd tensorflow
+sed -i -e &quot;s/ __align__(sizeof(T))//g&quot; tensorflow/core/kernels/concat_lib_gpu_impl.cu.cc
+sed -i -e &quot;s/ __align__(sizeof(T))//g&quot; tensorflow/core/kernels/depthwise_conv_op_gpu.cu.cc
+sed -i -e &quot;s/ __align__(sizeof(T))//g&quot; tensorflow/core/kernels/split_lib_gpu.cu.cc
+</code></pre><h4 id="解决找不到 -‘protobuf-bzl’- 的问题"><a href="# 解决找不到 -‘protobuf-bzl’- 的问题" class="headerlink" title="解决找不到 ‘protobuf.bzl’ 的问题"></a>解决找不到 ‘protobuf.bzl’ 的问题</h4><p>我还遇到了以下错误</p><pre><code>ERROR: /Users/xunge/Desktop/tensorflow/tensorflow/tools/pip_package/BUILD:166:1: error loading package &#39;tensorflow&#39;: Encountered error while reading extension file &#39;protobuf.bzl&#39;: no such package &#39;@protobuf_archive//&#39;: java.io.IOException: thread interrupted and referenced by &#39;//tensorflow/tools/pip_package:build_pip_package&#39;
+</code></pre><p><a href="https://github.com/tensorflow/tensorflow/issues/12979" rel="external nofollow noopener noreferrer" target="_blank">解决办法</a> 如下：</p><pre><code>sed -i &#39;\@https://github.com/google/protobuf/archive/0b059a3d8a8f8aa40dde7bea55edca4ec5dfea66.tar.gz@d&#39; tensorflow/workspace.bzl
+</code></pre><h4 id="添加依赖头文件 -nccl-h- 如编译 1-7 不用做此步骤"><a href="# 添加依赖头文件 -nccl-h- 如编译 1-7 不用做此步骤" class="headerlink" title="添加依赖头文件 nccl.h (如编译 1.7 不用做此步骤)"></a>添加依赖头文件 nccl.h (如编译 1.7 不用做此步骤)</h4><p>下载 <a href="https://github.com/NVIDIA/nccl/blob/master/src/nccl.h" rel="external nofollow noopener noreferrer" target="_blank">nccl.h</a>，放在 <code>third_party/nccl</code> 文件夹内</p><h4 id="修改 -tensorflow-workspace-bzl- 文件"><a href="# 修改 -tensorflow-workspace-bzl- 文件" class="headerlink" title="修改 tensorflow/workspace.bzl 文件"></a>修改 tensorflow/workspace.bzl 文件</h4><pre><code>tf_http_archive(
+    name = &quot;protobuf_archive&quot;,
+    urls = [
+        &quot;https://mirror.bazel.build/github.com/google/protobuf/archive/396336eb961b75f03b25824fe86cf6490fb75e3a.tar.gz&quot;,
+        &quot;https://github.com/google/protobuf/archive/396336eb961b75f03b25824fe86cf6490fb75e3a.tar.gz&quot;,
+    ],
+    sha256 = &quot;846d907acf472ae233ec0882ef3a2d24edbbe834b80c305e867ac65a1f2c59e3&quot;,
+    strip_prefix = &quot;protobuf-396336eb961b75f03b25824fe86cf6490fb75e3a&quot;,
+)
+</code></pre><p>搜索如上替换为如下</p><pre><code>tf_http_archive(
+    name = &quot;protobuf_archive&quot;,
+    urls = [
+        &quot;https://mirror.bazel.build/github.com/dtrebbien/protobuf/archive/50f552646ba1de79e07562b41f3999fe036b4fd0.tar.gz&quot;,
+        &quot;https://github.com/dtrebbien/protobuf/archive/50f552646ba1de79e07562b41f3999fe036b4fd0.tar.gz&quot;,
+    ],
+    sha256 = &quot;eb16b33431b91fe8cee479575cee8de202f3626aaf00d9bf1783c6e62b4ffbc7&quot;,
+    strip_prefix = &quot;protobuf-50f552646ba1de79e07562b41f3999fe036b4fd0&quot;,
+)
+</code></pre><p>修复 third_party/gpus/cuda/BUILD.tpl 文件 -lgomp 报错</p><pre><code>linkopts = [&quot;-lgomp&quot;],
+</code></pre><p>搜索如上，注释掉</p><pre><code># linkopts = [&quot;-lgomp&quot;],
+</code></pre><h2 id="开始编译"><a href="# 开始编译" class="headerlink" title="开始编译"></a>开始编译</h2><h3 id="编译配置"><a href="# 编译配置" class="headerlink" title="编译配置"></a> 编译配置</h3><p>在 TensorFlow 目录下输入以下命令进行命令配置</p><pre><code>./configure
+</code></pre><p>配置文件如下</p><pre><code>You have bazel 0.10 installed.
+Please specify the location of python. [Default is /Users/user/.pyenv/versions/tensorflow-gpu/bin/python]: 
+
+
+Found possible Python library paths:
+  /Users/user/.pyenv/versions/tensorflow-gpu/lib/python3.6/site-packages
+Please input the desired Python library path to use.  Default is [/Users/user/.pyenv/versions/tensorflow-gpu/lib/python3.6/site-packages]
+
+Do you wish to build TensorFlow with Google Cloud Platform support? [Y/n]: n
+No Google Cloud Platform support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with Hadoop File System support? [Y/n]: n
+No Hadoop File System support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with Amazon S3 File System support? [Y/n]: n
+No Amazon S3 File System support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with Apache Kafka Platform support? [y/N]: n
+No Apache Kafka Platform support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with XLA JIT support? [y/N]: n
+No XLA JIT support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with GDR support? [y/N]: n
+No GDR support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with VERBS support? [y/N]: n
+No VERBS support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with OpenCL SYCL support? [y/N]: n
+No OpenCL SYCL support will be enabled for TensorFlow.
+
+Do you wish to build TensorFlow with CUDA support? [y/N]: y
+CUDA support will be enabled for TensorFlow.
+
+Please specify the CUDA SDK version you want to use, e.g. 7.0. [Leave empty to default to CUDA 9.0]: 9.1
+
+
+Please specify the location where CUDA 9.1 toolkit is installed. Refer to README.md for more details. [Default is /usr/local/cuda]: 
+
+
+Please specify the cuDNN version you want to use. [Leave empty to default to cuDNN 7.0]: 
+
+
+Please specify the location where cuDNN 7 library is installed. Refer to README.md for more details. [Default is /usr/local/cuda]:
+
+
+Please specify a list of comma-separated Cuda compute capabilities you want to build with.
+You can find the compute capability of your device at: https://developer.nvidia.com/cuda-gpus.
+Please note that each additional compute capability significantly increases your build time and binary size. [Default is: 3.5,5.2]6.1
+
+
+Do you want to use clang as CUDA compiler? [y/N]: n
+nvcc will be used as CUDA compiler.
+
+Please specify which gcc should be used by nvcc as the host compiler. [Default is /usr/bin/gcc]: 
+
+
+Do you wish to build TensorFlow with MPI support? [y/N]: n
+No MPI support will be enabled for TensorFlow.
+
+Please specify optimization flags to use during compilation when bazel option &quot;--config=opt&quot; is specified [Default is -march=native]: 
+
+
+Would you like to interactively configure ./WORKSPACE for Android builds? [y/N]: 
+Not configuring the WORKSPACE for Android builds.
+
+Preconfigured Bazel build configs. You can use any of the below by adding &quot;--config=&lt;&gt;&quot; to your build command. See tools/bazel.rc for more details.
+    --config=mkl             # Build with MKL support.
+    --config=monolithic      # Config for mostly static monolithic build.
+Configuration finished
+</code></pre><h3 id="编译"><a href="# 编译" class="headerlink" title="编译"></a>编译</h3><pre><code>bazel clean --expunge
+bazel build --config=cuda --config=opt --cxxopt=&quot;-D_GLIBCXX_USE_CXX11_ABI=0&quot; --action_env PATH --action_env LD_LIBRARY_PATH --action_env DYLD_LIBRARY_PATH //tensorflow/tools/pip_package:build_pip_package
+</code></pre><p>如果看到</p><pre><code>INFO: Build completed successfully, 9160 total actions
+</code></pre><p>就说明编译成功</p><h3 id="创建 wheel 文件并安装"><a href="# 创建 wheel 文件并安装" class="headerlink" title="创建 wheel 文件并安装"></a>创建 wheel 文件并安装</h3><pre><code>$ bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+$ cd ~
+$ sudo pip install /tmp/tensorflow_pkg/tensorflow-1.8-cp36-cp36m-macosx_10_13_x86_64.whl
+</code></pre><p>本人编译完成后的文件为 <code>tensorflow-1.8.0-cp36-cp36m-macosx_10_7_x86_64.whl</code> <a href="https://pan.baidu.com/s/14o0uIOutmW866ftbf8nvuA" rel="external nofollow noopener noreferrer" target="_blank">百度云下载</a></p><p>最后提供本人 Z270 + i7-7700k 的黑苹果 <a href="https://pan.baidu.com/s/1ttgZ1cralJrTYkZS5BmwnQ" rel="external nofollow noopener noreferrer" target="_blank">EFI</a></p><p>参考文章：</p><ul><li><a href="https://www.shifeng1993.com/2018/05/26/tensorflow_gpu_macos/" rel="external nofollow noopener noreferrer" target="_blank">【tensorflow】macOS 10.13.4 编译 GPU 版本的 TensorFlow 1.8</a></li></ul></div><div class="post-footer-info bg-gray"><figure class="avatar centered"><img src="https://img.xungejiang.com/static/images/avatar.jpg"></figure><section class="post-footer-date"><p class="card-subtitle text-gray mb-0">Publish: 2018-10-08</p></section><section class="post-footer-action"><div class="dropdown dropdown-right float-right"><a class="btn btn-link btn-gray dropdown-toggle" tabindex="0"><i class="icon material-icons casino-icons">share</i></a><ul class="menu"><li class="menu-item"><a href="http://service.weibo.com/share/share.php?appkey=&title=我是如何在黑苹果中编译安装 TensorFlow-GPU 1.8&url=https://blog.xungejiang.com/2018-07-06-tensorflow-gpu-mac/index.html&pic=https://blog.xungejiang.comhttps://img.xungejiang.com/static/images/favicon.png&searchPic=false&style=simple" target="_blank" rel="external nofollow noopener noreferrer">分享到微博</a></li><li class="menu-item"><a href="http://connect.qq.com/widget/shareqq/index.html?site=XUNGE&title=XUNGE&summary=哈工大 计算机科学博士在读&pics=https://blog.xungejiang.comhttps://img.xungejiang.com/static/images/favicon.png&url=https://blog.xungejiang.com" target="_blank" rel="external nofollow noopener noreferrer">分享到 QQ</a></li></ul></div><div class="dropdown dropdown-right float-right"><a class="btn btn-link btn-gray dropdown-toggle" tabindex="0"><i class="icon material-icons casino-icons">devices_other</i></a><ul class="menu"><li class="menu-item"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC4klEQVR42u3aQXLbMBAEQP3/0841VY7JmQXlUGDz5JItEA0ftnYWr69HPi9sbGxsbGxsbGzsW7Jf8fOPhf76/Pvf/PStZIXj1WZ7xsbGxt6bnW9utsXkW8k/Y2nP2NjY2A9gJ685LmazA1ovdcnRYGNjY2PPeO2asxYIGxsbG3uFfRLlxI3ESnuDjY2Njd22AbP4/jg2ytuV/5ClYWNjY9+enQ9N7/Pzr863sbGxsW/Mbp+2tTg+vrx0JUXrZOfY2NjYm7JnMX0bKs3iobyNSY4GGxsbe1f2ehlr46Hkt7OLOycFFRsbG3tT9qzk5K3F7DjyNmYpS8PGxsbegn08vp0VrePV8hYi2c9w0IuNjY29NXvliszsOFaK02UFDBsbG/vD2Vc1IfkKycG1LdMwS8PGxsb+cHY+Us0bibYQtpd12stA2NjY2M9h55+3BS8fHl91KEUBw8bGxt6Cnbwgh7WFZ7ZC3epgY2Njb82uA5r4Ik5exvIx88WhEjY2NvaHs2elqN10PgzIA6w66sLGxsbelD0DzzbXlqV2/HASRWFjY2M/kp2MAdpylbcus8uXP+4BGxsbe1N2W7SOC0z+SXK4beR0cvTY2NjYW7NXBqizhiQvnEnbU1++xMbGxt6UnQf3bXlbiYdy8HDQi42Njf3h7PYSzDsw+cp5MxONB7CxsbE3Yufj1ahUlCOHvHVJhhDDqQg2Njb2h7NX4qEL4p4ySMo/x8bGxsZum5ZkhTweWg+5sLGxsZ/JfsdlnVkU1a52sj42Njb2puz2yUtIHg/lBay9bISNjY39BPasGFwV+rcD5vyNxaAXGxsbewv2rGitH1nyrpXyho2Njf00dhLEv++q5Xp4dHJA2NjY2NijxmPlIK7aGzY2NjZ2vnQ7EsgDpryNqUMlbGxs7I3Y+bD22jZmVtLqo8fGxsbemj0Lbto4qQ2nkss9vzTfxsbGxr4x+zkPNjY2NjY2NjY29m2ePywqUyVJmBs7AAAAAElFTkSuQmCC"></li></ul></div></section></div><div class="divider m-0"></div><div class="post-nav px-2 bg-gray"><ul class="pagination"><li class="page-item page-prev"><a href="/mac-change-ssd-760p/"><div class="page-item-title h5"><i class="icon material-icons casino-icons">arrow_back</i></div><div class="page-item-subtitle">14 年 MacBook Pro 升级 Intel 760p NVME SSD</div></a></li><li class="page-item page-next"><a href="/2017-12-09-wake-on-lan/"><div class="page-item-title h5"><i class="icon material-icons casino-icons">arrow_forward</i></div><div class="page-item-subtitle">远程开机_网络唤醒设置方法 (WOL, Wake on Lan)</div></a></li></ul></div><div class="card-footer"><div id="disqus_thread"></div><style></style><div class="btn_click_load"><button class="btn btn-primary disqus_click_btn">阅读评论（请确保 disqus 可以正常加载）</button></div><script type="text/javascript">var disqus_config=function(){this.page.url="https://blog.xungejiang.com/2018-07-06-tensorflow-gpu-mac/",this.page.identifier="https://blog.xungejiang.com/2018-07-06-tensorflow-gpu-mac/"}</script><script type="text/javascript">var xhr=new XMLHttpRequest;xhr.open("GET","https://disqus.com/next/config.json",!0),xhr.timeout=4e3,xhr.send(),xhr.onload=function(){if(200==this.status||304==this.status){var t=document,e=t.createElement("script");e.src="//xiaoyu-1.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e),document.querySelector(".disqus_click_btn").setAttribute("style","display:none")}},xhr.ontimeout=function(t){document.querySelector(".disqus_click_btn").setAttribute("style","display:block")},xhr.onerror=function(t){document.querySelector(".disqus_click_btn").setAttribute("style","display:block")},document.querySelector(".disqus_click_btn").onclick=function(){var t,e;t=document,(e=t.createElement("script")).src="//xiaoyu-1.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e),document.querySelector(".disqus_click_btn").setAttribute("style","display:none")}</script></div></div></div></main><footer class="centered"><div class="footer-content"><div class="footer-sns-list"><a href="https://github.com/xunge" target="_blank" rel="external nofollow noopener noreferrer"><button class="footer-sns-btn footer-sns-github"></button></a></div><div class="footer-copyright"><div>Copyright&nbsp;©&nbsp;<span year=""></span> <a href="https://blog.xungejiang.com">XUNGE</a></div><div><a href="http://www.miitbeian.gov.cn" rel="external nofollow noopener noreferrer" target="_blank">黑ICP备18006891号</a></div></div><div class="footer-develop"><div>Powered by <a href="https://hexo.io" rel="external nofollow noopener noreferrer" target="_blank" class="footer-develop-a">Hexo</a></div><div>Theme - <a href="https://github.com/neoFelhz/hexo-theme-spectre" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Spectre</a></div></div></div></footer><div class="back-to-top rounded"><a href="#"><i class="icon material-icons casino-icons">expand_less</i></a></div></div></div><script>lsloader.js("lazy_js_vender","https://img.xungejiang.com/static/scripts/lazyload.min.js")</script><script type="text/javascript">var myLazyLoad=new LazyLoad({elements_selector:".lazy"});window.onload=function(){setInterval(function(){queue.execNext()},200)}</script><script type="text/javascript">var copyrightNow=(new Date).getFullYear(),textContent=document.querySelector("span[year]");copyrightSince=2016,copyrightSince===copyrightNow?textContent.textContent=copyrightNow:textContent.textContent=copyrightSince+" - "+copyrightNow</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

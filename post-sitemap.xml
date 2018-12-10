@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://blog.xungejiang.com</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/mac-change-ssd-760p/</loc>
+        <lastmod>2018-11-18T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-01-28-jekyll-install/</loc>
+        <lastmod>2018-11-16T15:01:35.637Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-12-23-django-error-ondelete/</loc>
+        <lastmod>2018-10-08T03:32:06.162Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-12-09-wake-on-lan/</loc>
+        <lastmod>2018-10-08T03:32:06.162Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2018-07-06-tensorflow-gpu-mac/</loc>
+        <lastmod>2018-10-08T03:32:06.162Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-10-17-mysql-install/</loc>
+        <lastmod>2018-10-08T03:32:06.161Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-10-05-python-easy/</loc>
+        <lastmod>2018-10-08T03:32:06.161Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-11-29-translate-blog2/</loc>
+        <lastmod>2018-10-08T03:32:06.161Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-07-31-NAS-introduction/</loc>
+        <lastmod>2018-10-08T03:32:06.160Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-08-03-shr-raid015/</loc>
+        <lastmod>2018-10-08T03:32:06.160Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-07-11-ssm-jcaptcha/</loc>
+        <lastmod>2018-10-08T03:32:06.160Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-06-08-build-up-computer/</loc>
+        <lastmod>2018-10-08T03:32:06.159Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-05-03-quick-sort/</loc>
+        <lastmod>2018-10-08T03:32:06.158Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-05-04-Java-interview-questions/</loc>
+        <lastmod>2018-10-08T03:32:06.158Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-04-09-MIUI-global-install/</loc>
+        <lastmod>2018-10-08T03:32:06.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-05-02-regular-expression/</loc>
+        <lastmod>2018-10-08T03:32:06.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-04-01-computer-network/</loc>
+        <lastmod>2018-10-08T03:32:06.156Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-02-07-markdown-introduction/</loc>
+        <lastmod>2018-10-08T03:32:06.155Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-02-14-MyBatis-demo/</loc>
+        <lastmod>2018-10-08T03:32:06.155Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-02-07-jquery/</loc>
+        <lastmod>2018-10-08T03:32:06.155Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2018-08-04-matplotlib-html/</loc>
+        <lastmod>2017-08-25T07:08:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/2017-03-03-markdown-mathjax/</loc>
+        <lastmod>2017-03-03T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/github-domain-name/</loc>
+        <lastmod>2017-01-27T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/iMac-21.5-change-SSD/</loc>
+        <lastmod>2016-12-06T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/Mijia-lamp-portable-source/</loc>
+        <lastmod>2016-11-19T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/PPT-highlight-code/</loc>
+        <lastmod>2016-10-12T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/highlight/</loc>
+        <lastmod>2016-07-19T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/form-confirm/</loc>
+        <lastmod>2016-07-19T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/mac-install-tomcat/</loc>
+        <lastmod>2016-07-18T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/mac-show-hidden-files/</loc>
+        <lastmod>2016-07-18T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/html-tab/</loc>
+        <lastmod>2016-07-16T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/jdbc/</loc>
+        <lastmod>2016-07-15T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/github-intro/</loc>
+        <lastmod>2016-07-07T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/sublime-C/</loc>
+        <lastmod>2016-07-07T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/mac-bootcamp-win10/</loc>
+        <lastmod>2016-07-07T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/install-macOS/</loc>
+        <lastmod>2016-07-04T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://blog.xungejiang.com/sublime-introduction/</loc>
+        <lastmod>2016-07-03T01:01:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
